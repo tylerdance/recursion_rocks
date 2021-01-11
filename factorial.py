@@ -3,15 +3,23 @@
 
 # This function returns the factorial of a given number.
 
+# def factorial(n):
+#     if n == 0:
+#         return 1
+#     elif n == 1:
+#         return 1
+#     else:
+#         return n * factorial(n - 1)
+#     pass
+
+# print(factorial(5))
+# => 120
+
+""" pete's solution """
 def factorial(n):
     if n == 0:
         return 1
-    elif n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
-    pass
+    
+    return n * factorial(n - 1)
 
-print(factorial(5))
-# => 120
-
+print(factorial(1))
