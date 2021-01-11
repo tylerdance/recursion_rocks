@@ -6,9 +6,26 @@
 # H stands for Heads and T stands for tails
 # Represent the two outcomes of each flip as "H" or "T"
 
-def coin_flips(n):
-    # Write code here
-    pass
+n = 2
+toss = list('-' * n)
 
-# print(coinFlips(2)) 
+def coin_flips(n):
+    if type(n) != int:
+        raise TypeError('Value must be an integer')
+    global toss
+    if n == 1:
+        toss[-n] = 'T'
+        print(''.join(toss))
+        toss[-n] = 'H'
+        print(''.join(toss))
+    else:
+        toss[-n] = 'T'
+        coin_flips(n-1)
+        toss[-n] = 'H'
+        coin_flips(n-1)
+
+    # coin_flips(n)
+    
+print(coin_flips(2)) 
 # => ["HH", "HT", "TH", "TT"]
+

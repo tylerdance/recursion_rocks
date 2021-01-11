@@ -9,16 +9,23 @@
 # pretty_print(inner_dictionary, indent + '..');
 # ...
 
-def pretty_print(dictionary, indent):
-    # Write code here
-    pass
+def pretty_print(dictionary, indent, level=1):
+    pretty = ""
+    for key in dictionary:
+        val = dictionary[key]
+        if type(val) != dict:
+            pretty = pretty + f"{indent*level}{key}: {val}\n"
+        else:
+            pretty = pretty + f"{indent*level}{key}: \n" + pretty_print(val, indent, level + 1)
+    return pretty
+    # pass
 
 o1 = {"a": 1, "b": 2}
 o2 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero"}, "d": 4}
 o3 = {"a": 1, "b": 2, "c": {"name": "Bruce Wayne", "occupation": "Hero", "friends": {"spiderman": {"name": "Peter Parker"}, "superman": {"name": "Clark Kent"}}}, "d": 4}
 
 # print(pretty_print(o1, "-"))
-# print(pretty_print(o2, " "))
+print(pretty_print(o2, " "))
 # print(pretty_print(o3, ".."))
 # ..a: 1
 # ..b: 2
